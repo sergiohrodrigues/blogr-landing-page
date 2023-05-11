@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 import imagem1 from './imagem1.svg';
 import imagem2 from './imagem2.svg';
-import imagem22 from './imagem2-2.svg';
 import imagem3 from './imagem3.svg';
 
 const MainContainer = styled.main`

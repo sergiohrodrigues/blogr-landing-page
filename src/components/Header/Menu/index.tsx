@@ -1,5 +1,9 @@
 import { RiMenuFill } from 'react-icons/ri';
+import { GrClose } from 'react-icons/gr';
 import { styled } from 'styled-components';
+import logo from '../logo.svg';
+import { useState } from 'react';
+import Summary from './Summary';
 
 const MenuContainer = styled.header`
   padding: 0 1rem;
@@ -8,11 +12,6 @@ const MenuContainer = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  span{
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 2rem;
-    color: #fff;
   }
 `;
 
@@ -36,6 +35,10 @@ const NavBar = styled.nav`
       display: inline;
       font-size: 1.3rem;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
     summary:active{
       color: #705862;
@@ -84,15 +87,17 @@ const NavBar = styled.nav`
 `;
 
 export default function Menu(){
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return(
     <MenuContainer>
       <div>
-        <span>Blogr</span>
-        <RiMenuFill size={30} color='#fff'/>
+        <img src={logo} alt="logo Blogr" />
+        {menuOpen ? <GrClose size={30} color='#fff' onClick={() => setMenuOpen(!menuOpen)}/> : <RiMenuFill size={30} color='#fff' onClick={() => setMenuOpen(!menuOpen)}/>}
       </div>
-      <NavBar style={{display: 'none'}}>
+      <NavBar style={menuOpen ? {display:'flex'} : {display:'none'}}>
         <details>
-          <summary>Product</summary>
+          <Summary item='Product' />
           <ul>
             <li>teste1</li>
             <li>teste2</li>
@@ -102,7 +107,7 @@ export default function Menu(){
         </details>
 
         <details>
-          <summary>Company</summary>
+          <Summary item='Company'/>
           <ul>
             <li>teste1</li>
             <li>teste2</li>
@@ -112,7 +117,7 @@ export default function Menu(){
         </details>
 
         <details>
-          <summary>Connect</summary>
+          <Summary item='Connect'/>
           <ul>
             <li>Contact</li>
             <li>Newsletter</li>
