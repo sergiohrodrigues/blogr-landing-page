@@ -28,6 +28,13 @@ const FooterContainer = styled.footer`
       }
     }
   }
+  @media screen and (min-width: 1024px){
+    flex-direction: row;
+    justify-content: space-evenly;
+    span{
+      font-size: 2rem;
+    }
+  }
 `;
 
 export default function Footer(){

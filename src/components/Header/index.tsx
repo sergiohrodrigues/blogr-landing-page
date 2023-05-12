@@ -4,10 +4,10 @@ import Menu from './Menu';
 const HeaderContainer = styled.section`
   padding: 2rem 0 6rem 0;
   background-image: url('/images/fundo-menu-mobile.svg');
-  background-color: #ff866f;
-  border-radius: 0 0 0 5rem;
   background-size: auto;
   background-repeat: no-repeat;
+  background-color: #ff866f;
+  border-radius: 0 0 0 5rem;
   section{
     margin-top: 4rem;
     h1{
@@ -40,12 +40,27 @@ const HeaderContainer = styled.section`
       button:nth-child(1){
         background-color: #fff;
         color: orange;
+        @media screen and (min-width: 834px){
+          &:hover{
+            cursor: pointer;
+            background-color: #ec5a3d;
+            color: #fff;
+          }
+        }
       }
       button:nth-child(2){
         color: #fff;
         border: 1px solid #fff;
+        @media screen and (min-width: 834px){
+          &:hover{
+            cursor: pointer;
+            background-color: #fff;
+            color: #ec5a3d;
+          }
+        }
       }
     }
+
   }
 `;
 
