@@ -5,8 +5,7 @@ import imagem2 from './imagem2.svg';
 import imagem2desktop from './imagem2-desktop.svg';
 import imagem3 from './imagem3.svg';
 
-import { motion, useScroll, useSpring } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const MainContainer = styled.main`
   margin-top: 4rem;
@@ -164,32 +163,60 @@ const Section3 = styled.section`
 `;
 
 export default function Main(){
-  // const carouselRef = useRef(null);
-
-  // const { scrollX } = useScroll({
-  //   container: carouselRef
-  // });
-  
-  // return (
-  //   <div ref={carouselRef}>
-  //     {children}
-  //   </div>
-  // )
 
   return(
-  // <div ref={carouselRef}>
-
     <MainContainer>
-      <h3>Designed for the future</h3>
+      <motion.h3
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+        variants={{
+          hidden: { opacity: 0, x: -100 },
+          visible: { opacity: 1, x: 0 }
+        }}
+      >
+        Designed for the future
+      </motion.h3>
 
       <Section1>
-        <img src={imagem1} className='imagem1' alt="desktop" />
-        <img
+        <motion.img 
+          src={imagem1} 
+          className='imagem1' 
+          alt="desktop" 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 }
+          }}
+        />
+        <motion.img
           src={imagem1desktop} 
           className='imagem1-1' 
-          alt="desktop" 
+          alt="desktop"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: 50 },
+            visible: { opacity: 1, x: 0 }
+          }}
         />
-        <section>
+        <motion.section
+          className="mx-auto w-5/6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+        >
           <div>
             <h3>Introducing an extensible editor</h3>
             <p>Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select . You can choose either a full-height screenshot or a cropped one based on how long the page is. sdfs very long, it might be best to crop it.</p>
@@ -198,27 +225,86 @@ export default function Main(){
             <h3>Robust content management</h3>
             <p>Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select. You can choose either a full-height screenshot or a cropped.</p>
           </div>
-        </section>
+        </motion.section>
       </Section1>
 
       <Section2>
-        <div className='divImagem'>
-          <img src={imagem2} alt="2 smartphones" />
-        </div>
-        <div>
+        <motion.div
+          className='divImagem'
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: 0 },
+            visible: { opacity: 1, x: 0 }
+          }}
+        >
+          <motion.img 
+            src={imagem2} 
+            alt="2 smartphones" 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0 }
+            }}
+          />
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: 0 },
+            visible: { opacity: 1, x: 0 }
+          }}
+        >
           <h3>State of the Art Infrastructure</h3>
           <p>Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select. You can choose either a full-height screenshot or a cropped one.</p>
-        </div>
+        </motion.div>
       </Section2>
 
       <Section3>
-        <img src={imagem3} className='imagem3' alt="laptop" />
-        <img
+        <motion.img 
+          src={imagem3} 
+          className='imagem3' 
+          alt="laptop"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 }
+          }}
+        />
+        <motion.img
           src={imagem2desktop} 
           className='imagem3desktop' 
-          alt="laptop" 
+          alt="laptop"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
         />
-        <section>
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: 0 },
+            visible: { opacity: 1, x: 0 }
+          }}
+        >
           <div>
             <h3>Free, open, simple</h3>
             <p>Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select. You can choose either a full-height screenshot or a cropped.</p>
@@ -227,7 +313,7 @@ export default function Main(){
             <h3>Powerful tooling</h3>
             <p>Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select. You.</p>
           </div>
-        </section>
+        </motion.section>
       </Section3>
     </MainContainer>
     // </div>
