@@ -34,6 +34,12 @@ const FooterContainer = styled.footer`
     span{
       font-size: 2rem;
     }
+    ul{
+      li:hover{
+        cursor: pointer;
+        text-decoration: underline #fff;
+      }
+    }
   }
 `;
 

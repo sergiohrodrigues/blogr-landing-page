@@ -213,9 +213,7 @@ export default function Main(){
 
       <Section3>
         <img src={imagem3} className='imagem3' alt="laptop" />
-        <motion.img
-          initial={{ x: -400 }}
-          whileInView={{ x: 0 }} 
+        <img
           src={imagem2desktop} 
           className='imagem3desktop' 
           alt="laptop" 
