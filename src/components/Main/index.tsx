@@ -5,9 +5,12 @@ import imagem2 from './imagem2.svg';
 import imagem2desktop from './imagem2-desktop.svg';
 import imagem3 from './imagem3.svg';
 
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { useRef } from 'react';
+
 const MainContainer = styled.main`
-margin-top: 4rem;
-text-align: center;
+  margin-top: 4rem;
+  text-align: center;
   h3{
     font-size: 1.5rem;
     padding: 0 1.3rem;
@@ -161,13 +164,31 @@ const Section3 = styled.section`
 `;
 
 export default function Main(){
+  // const carouselRef = useRef(null);
+
+  // const { scrollX } = useScroll({
+  //   container: carouselRef
+  // });
+  
+  // return (
+  //   <div ref={carouselRef}>
+  //     {children}
+  //   </div>
+  // )
+
   return(
+  // <div ref={carouselRef}>
+
     <MainContainer>
       <h3>Designed for the future</h3>
 
       <Section1>
         <img src={imagem1} className='imagem1' alt="desktop" />
-        <img src={imagem1desktop} className='imagem1-1' alt="desktop" />
+        <img
+          src={imagem1desktop} 
+          className='imagem1-1' 
+          alt="desktop" 
+        />
         <section>
           <div>
             <h3>Introducing an extensible editor</h3>
@@ -192,7 +213,13 @@ export default function Main(){
 
       <Section3>
         <img src={imagem3} className='imagem3' alt="laptop" />
-        <img src={imagem2desktop} className='imagem3desktop' alt="laptop" />
+        <motion.img
+          initial={{ x: -400 }}
+          whileInView={{ x: 0 }} 
+          src={imagem2desktop} 
+          className='imagem3desktop' 
+          alt="laptop" 
+        />
         <section>
           <div>
             <h3>Free, open, simple</h3>
@@ -205,5 +232,6 @@ export default function Main(){
         </section>
       </Section3>
     </MainContainer>
+    // </div>
   );
 }
