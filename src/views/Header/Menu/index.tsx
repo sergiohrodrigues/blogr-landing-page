@@ -22,24 +22,72 @@ import {
   DrawerTrigger,
 } from '../../../components/ui/drawer';
 import { Minus, Plus, MenuIcon } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '../../../components/ui/accordion';
 // import { Bar, BarChart, ResponsiveContainer } from 'recharts';
 
-const components: { title: string; href: string; description: string }[] = [
+const product: { title: string; href: string; description: string }[] = [
   {
-    title: 'Alert Dialog',
-    href: '/docs/primitives/alert-dialog',
+    title: 'Product 1',
+    href: '#',
     description:
       'A modal dialog that interrupts the user with important content and expects a response.',
   },
   {
-    title: 'Hover Card',
-    href: '/docs/primitives/hover-card',
+    title: 'Product 2',
+    href: '#',
     description:
       'For sighted users to preview content available behind a link.',
   },
   {
-    title: 'Progress',
-    href: '/docs/primitives/progress',
+    title: 'Product 3',
+    href: '#',
+    description:
+      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
+  }
+];
+
+const company: { title: string; href: string; description: string }[] = [
+  {
+    title: 'Company 1',
+    href: '#',
+    description:
+      'A modal dialog that interrupts the user with important content and expects a response.',
+  },
+  {
+    title: 'Company 2',
+    href: '#',
+    description:
+      'For sighted users to preview content available behind a link.',
+  },
+  {
+    title: 'Company 3',
+    href: '#',
+    description:
+      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
+  }
+];
+
+const connect: { title: string; href: string; description: string }[] = [
+  {
+    title: 'Connect 1',
+    href: '#',
+    description:
+      'A modal dialog that interrupts the user with important content and expects a response.',
+  },
+  {
+    title: 'Connect 2',
+    href: '#',
+    description:
+      'For sighted users to preview content available behind a link.',
+  },
+  {
+    title: 'Connect 3',
+    href: '#',
     description:
       'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
   }
@@ -105,14 +153,14 @@ export function Menu() {
               <NavigationMenuTrigger className='bg-transparent text-white hover:bg-transparent hover:text-white'>Product</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <ListItem href="/docs" title="Introduction">
-                  Re-usable components built using Radix UI and Tailwind CSS.
+                  <ListItem href="#" title="Product 1">
+                    {/* Re-usable components built using Radix UI and Tailwind CSS. */}
                   </ListItem>
-                  <ListItem href="/docs/installation" title="Installation">
-                  How to install dependencies and structure your app.
+                  <ListItem href="#" title="Product 2">
+                    {/* How to install dependencies and structure your app. */}
                   </ListItem>
-                  <ListItem href="/docs/primitives/typography" title="Typography">
-                  Styles for headings, paragraphs, lists...etc
+                  <ListItem href="#" title="Product 3">
+                    {/* Styles for headings, paragraphs, lists...etc */}
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
@@ -121,13 +169,13 @@ export function Menu() {
               <NavigationMenuTrigger className='bg-transparent text-white hover:bg-transparent hover:text-white'>Company</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {components.map((component) => (
+                  {company.map((component) => (
                     <ListItem
                       key={component.title}
                       title={component.title}
                       href={component.href}
                     >
-                      {component.description}
+                      {/* {component.description} */}
                     </ListItem>
                   ))}
                 </ul>
@@ -138,13 +186,13 @@ export function Menu() {
               <NavigationMenuTrigger className='bg-transparent text-white hover:bg-transparent hover:text-white'>Connect</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {components.map((component) => (
+                  {connect.map((component) => (
                     <ListItem
                       key={component.title}
                       title={component.title}
                       href={component.href}
                     >
-                      {component.description}
+                      {/* {component.description} */}
                     </ListItem>
                   ))}
                 </ul>
@@ -169,64 +217,57 @@ export function Menu() {
             </Button>
           </DrawerTrigger>
         </div>
-        <DrawerContent className='md:hidden'>
+        <DrawerContent className='md:hidden h-[70vh]'>
           <div className="mx-auto w-full max-w-sm">
             <DrawerHeader>
-              <DrawerTitle>Move Goal</DrawerTitle>
-              <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+              <DrawerTitle>Menu</DrawerTitle>
+              {/* <DrawerDescription>Set your daily activity goal.</DrawerDescription> */}
             </DrawerHeader>
             <div className="p-4 pb-0">
-              <div className="flex items-center justify-center space-x-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8 shrink-0 rounded-full"
-                  onClick={() => onClick(-10)}
-                  disabled={goal <= 200}
-                >
-                  <Minus className="h-4 w-4" />
-                  <span className="sr-only">Decrease</span>
-                </Button>
-                <div className="flex-1 text-center">
-                  <div className="text-7xl font-bold tracking-tighter">
-                    {goal}
-                  </div>
-                  <div className="text-[0.70rem] uppercase text-muted-foreground">
-                Calories/day
-                  </div>
-                </div>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8 shrink-0 rounded-full"
-                  onClick={() => onClick(10)}
-                  disabled={goal >= 400}
-                >
-                  <Plus className="h-4 w-4" />
-                  <span className="sr-only">Increase</span>
-                </Button>
-              </div>
-              <div className="mt-3 h-[120px]">
-                {/* <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={data}>
-                    <Bar
-                      dataKey="goal"
-                      style={
-                    {
-                      fill: 'hsl(var(--foreground))',
-                      opacity: 0.9,
-                    } as React.CSSProperties
-                      }
-                    />
-                  </BarChart>
-                </ResponsiveContainer> */}
+              <div className="flex items-center justify-center space-x-2 gap-4">
+                <Accordion type="single" collapsible className="w-full flex flex-col items-center">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>Product</AccordionTrigger>
+                    {product.map((prod) => (
+                      <AccordionContent key={prod.title}>
+                        {prod.title}
+                      </AccordionContent>
+                    ))}
+                  </AccordionItem>
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger>Company</AccordionTrigger>
+                    {company.map((com) => (
+                      <AccordionContent key={com.title}>
+                        {com.title}
+                      </AccordionContent>
+                    ))}
+                  </AccordionItem>
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger>Connect</AccordionTrigger>
+                    {connect.map((con) => (
+                      <AccordionContent key={con.title}>
+                        {con.title}
+                      </AccordionContent>
+                    ))}
+                  </AccordionItem>
+                  {/* <AccordionItem value="item-2">
+                    <AccordionTrigger>Is it styled?</AccordionTrigger>
+                    <AccordionContent>
+                      Yes. It comes with default styles that matches the other
+                      components&apos; aesthetic.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger>Is it animated?</AccordionTrigger>
+                    <AccordionContent>
+                      Yes. It&apos;s animated by default, but you can disable it if you
+                      prefer.
+                    </AccordionContent>
+                  </AccordionItem> */}
+                </Accordion>
               </div>
             </div>
             <DrawerFooter>
-              <Button>Submit</Button>
-              <DrawerClose asChild>
-                <Button variant="outline">Cancel</Button>
-              </DrawerClose>
             </DrawerFooter>
           </div>
         </DrawerContent>
