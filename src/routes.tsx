@@ -1,6 +1,6 @@
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Main from './components/Main';
+import Footer from './views/Footer';
+import Header from './views/Header';
+import Main from './views/Main';
 
 function AppRoutes() {
   return (

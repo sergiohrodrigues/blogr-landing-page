@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import Menu from './Menu';
+import { Menu } from './Menu';
 
 const HeaderContainer = styled.section`
   padding: 2rem 0 6rem 0;
